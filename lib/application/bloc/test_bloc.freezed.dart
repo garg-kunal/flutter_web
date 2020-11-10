@@ -27,6 +27,20 @@ class _$TestEventTearOff {
   _Decrement decrement() {
     return const _Decrement();
   }
+
+// ignore: unused_element
+  _Save save(String name) {
+    return _Save(
+      name,
+    );
+  }
+
+// ignore: unused_element
+  _All all(Model model) {
+    return _All(
+      model,
+    );
+  }
 }
 
 /// @nodoc
@@ -40,12 +54,16 @@ mixin _$TestEvent {
     @required Result started(),
     @required Result increment(),
     @required Result decrement(),
+    @required Result save(String name),
+    @required Result all(Model model),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result started(),
     Result increment(),
     Result decrement(),
+    Result save(String name),
+    Result all(Model model),
     @required Result orElse(),
   });
   @optionalTypeArgs
@@ -53,12 +71,16 @@ mixin _$TestEvent {
     @required Result started(_Started value),
     @required Result increment(_Increment value),
     @required Result decrement(_Decrement value),
+    @required Result save(_Save value),
+    @required Result all(_All value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result started(_Started value),
     Result increment(_Increment value),
     Result decrement(_Decrement value),
+    Result save(_Save value),
+    Result all(_All value),
     @required Result orElse(),
   });
 }
@@ -117,10 +139,14 @@ class _$_Started implements _Started {
     @required Result started(),
     @required Result increment(),
     @required Result decrement(),
+    @required Result save(String name),
+    @required Result all(Model model),
   }) {
     assert(started != null);
     assert(increment != null);
     assert(decrement != null);
+    assert(save != null);
+    assert(all != null);
     return started();
   }
 
@@ -130,6 +156,8 @@ class _$_Started implements _Started {
     Result started(),
     Result increment(),
     Result decrement(),
+    Result save(String name),
+    Result all(Model model),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -145,10 +173,14 @@ class _$_Started implements _Started {
     @required Result started(_Started value),
     @required Result increment(_Increment value),
     @required Result decrement(_Decrement value),
+    @required Result save(_Save value),
+    @required Result all(_All value),
   }) {
     assert(started != null);
     assert(increment != null);
     assert(decrement != null);
+    assert(save != null);
+    assert(all != null);
     return started(this);
   }
 
@@ -158,6 +190,8 @@ class _$_Started implements _Started {
     Result started(_Started value),
     Result increment(_Increment value),
     Result decrement(_Decrement value),
+    Result save(_Save value),
+    Result all(_All value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -212,10 +246,14 @@ class _$_Increment implements _Increment {
     @required Result started(),
     @required Result increment(),
     @required Result decrement(),
+    @required Result save(String name),
+    @required Result all(Model model),
   }) {
     assert(started != null);
     assert(increment != null);
     assert(decrement != null);
+    assert(save != null);
+    assert(all != null);
     return increment();
   }
 
@@ -225,6 +263,8 @@ class _$_Increment implements _Increment {
     Result started(),
     Result increment(),
     Result decrement(),
+    Result save(String name),
+    Result all(Model model),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -240,10 +280,14 @@ class _$_Increment implements _Increment {
     @required Result started(_Started value),
     @required Result increment(_Increment value),
     @required Result decrement(_Decrement value),
+    @required Result save(_Save value),
+    @required Result all(_All value),
   }) {
     assert(started != null);
     assert(increment != null);
     assert(decrement != null);
+    assert(save != null);
+    assert(all != null);
     return increment(this);
   }
 
@@ -253,6 +297,8 @@ class _$_Increment implements _Increment {
     Result started(_Started value),
     Result increment(_Increment value),
     Result decrement(_Decrement value),
+    Result save(_Save value),
+    Result all(_All value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -307,10 +353,14 @@ class _$_Decrement implements _Decrement {
     @required Result started(),
     @required Result increment(),
     @required Result decrement(),
+    @required Result save(String name),
+    @required Result all(Model model),
   }) {
     assert(started != null);
     assert(increment != null);
     assert(decrement != null);
+    assert(save != null);
+    assert(all != null);
     return decrement();
   }
 
@@ -320,6 +370,8 @@ class _$_Decrement implements _Decrement {
     Result started(),
     Result increment(),
     Result decrement(),
+    Result save(String name),
+    Result all(Model model),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -335,10 +387,14 @@ class _$_Decrement implements _Decrement {
     @required Result started(_Started value),
     @required Result increment(_Increment value),
     @required Result decrement(_Decrement value),
+    @required Result save(_Save value),
+    @required Result all(_All value),
   }) {
     assert(started != null);
     assert(increment != null);
     assert(decrement != null);
+    assert(save != null);
+    assert(all != null);
     return decrement(this);
   }
 
@@ -348,6 +404,8 @@ class _$_Decrement implements _Decrement {
     Result started(_Started value),
     Result increment(_Increment value),
     Result decrement(_Decrement value),
+    Result save(_Save value),
+    Result all(_All value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -360,6 +418,266 @@ class _$_Decrement implements _Decrement {
 
 abstract class _Decrement implements TestEvent {
   const factory _Decrement() = _$_Decrement;
+}
+
+/// @nodoc
+abstract class _$SaveCopyWith<$Res> {
+  factory _$SaveCopyWith(_Save value, $Res Function(_Save) then) =
+      __$SaveCopyWithImpl<$Res>;
+  $Res call({String name});
+}
+
+/// @nodoc
+class __$SaveCopyWithImpl<$Res> extends _$TestEventCopyWithImpl<$Res>
+    implements _$SaveCopyWith<$Res> {
+  __$SaveCopyWithImpl(_Save _value, $Res Function(_Save) _then)
+      : super(_value, (v) => _then(v as _Save));
+
+  @override
+  _Save get _value => super._value as _Save;
+
+  @override
+  $Res call({
+    Object name = freezed,
+  }) {
+    return _then(_Save(
+      name == freezed ? _value.name : name as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_Save implements _Save {
+  const _$_Save(this.name) : assert(name != null);
+
+  @override
+  final String name;
+
+  @override
+  String toString() {
+    return 'TestEvent.save(name: $name)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _Save &&
+            (identical(other.name, name) ||
+                const DeepCollectionEquality().equals(other.name, name)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(name);
+
+  @override
+  _$SaveCopyWith<_Save> get copyWith =>
+      __$SaveCopyWithImpl<_Save>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result started(),
+    @required Result increment(),
+    @required Result decrement(),
+    @required Result save(String name),
+    @required Result all(Model model),
+  }) {
+    assert(started != null);
+    assert(increment != null);
+    assert(decrement != null);
+    assert(save != null);
+    assert(all != null);
+    return save(name);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result started(),
+    Result increment(),
+    Result decrement(),
+    Result save(String name),
+    Result all(Model model),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (save != null) {
+      return save(name);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result started(_Started value),
+    @required Result increment(_Increment value),
+    @required Result decrement(_Decrement value),
+    @required Result save(_Save value),
+    @required Result all(_All value),
+  }) {
+    assert(started != null);
+    assert(increment != null);
+    assert(decrement != null);
+    assert(save != null);
+    assert(all != null);
+    return save(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result started(_Started value),
+    Result increment(_Increment value),
+    Result decrement(_Decrement value),
+    Result save(_Save value),
+    Result all(_All value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (save != null) {
+      return save(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Save implements TestEvent {
+  const factory _Save(String name) = _$_Save;
+
+  String get name;
+  _$SaveCopyWith<_Save> get copyWith;
+}
+
+/// @nodoc
+abstract class _$AllCopyWith<$Res> {
+  factory _$AllCopyWith(_All value, $Res Function(_All) then) =
+      __$AllCopyWithImpl<$Res>;
+  $Res call({Model model});
+}
+
+/// @nodoc
+class __$AllCopyWithImpl<$Res> extends _$TestEventCopyWithImpl<$Res>
+    implements _$AllCopyWith<$Res> {
+  __$AllCopyWithImpl(_All _value, $Res Function(_All) _then)
+      : super(_value, (v) => _then(v as _All));
+
+  @override
+  _All get _value => super._value as _All;
+
+  @override
+  $Res call({
+    Object model = freezed,
+  }) {
+    return _then(_All(
+      model == freezed ? _value.model : model as Model,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_All implements _All {
+  const _$_All(this.model) : assert(model != null);
+
+  @override
+  final Model model;
+
+  @override
+  String toString() {
+    return 'TestEvent.all(model: $model)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _All &&
+            (identical(other.model, model) ||
+                const DeepCollectionEquality().equals(other.model, model)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(model);
+
+  @override
+  _$AllCopyWith<_All> get copyWith =>
+      __$AllCopyWithImpl<_All>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result started(),
+    @required Result increment(),
+    @required Result decrement(),
+    @required Result save(String name),
+    @required Result all(Model model),
+  }) {
+    assert(started != null);
+    assert(increment != null);
+    assert(decrement != null);
+    assert(save != null);
+    assert(all != null);
+    return all(model);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result started(),
+    Result increment(),
+    Result decrement(),
+    Result save(String name),
+    Result all(Model model),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (all != null) {
+      return all(model);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result started(_Started value),
+    @required Result increment(_Increment value),
+    @required Result decrement(_Decrement value),
+    @required Result save(_Save value),
+    @required Result all(_All value),
+  }) {
+    assert(started != null);
+    assert(increment != null);
+    assert(decrement != null);
+    assert(save != null);
+    assert(all != null);
+    return all(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result started(_Started value),
+    Result increment(_Increment value),
+    Result decrement(_Decrement value),
+    Result save(_Save value),
+    Result all(_All value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (all != null) {
+      return all(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _All implements TestEvent {
+  const factory _All(Model model) = _$_All;
+
+  Model get model;
+  _$AllCopyWith<_All> get copyWith;
 }
 
 /// @nodoc

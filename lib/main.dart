@@ -4,6 +4,7 @@ import 'package:the_basics/Counterbloc/counter_bloc.dart';
 import 'package:the_basics/application/bloc/test_bloc.dart';
 import 'package:the_basics/bloc/random_bloc.dart';
 import 'package:the_basics/domain/index.dart';
+import 'package:the_basics/domain/mode.dart';
 import 'package:the_basics/second.dart';
 
 import 'infrastructure/index.dart';
@@ -22,6 +23,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  final name = new TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,7 +67,21 @@ class _HomeState extends State<Home> {
                   context.bloc<TestBloc>().add(TestEvent.decrement());
                   // BlocProvider.of<TestBloc>(context).add(TestEvent.decrement());
                 },
-              )
+              ),
+              TextFormField(
+                autocorrect: false,
+                controller: name,
+                decoration: InputDecoration(labelText: "Your name"),
+              ),
+              FlatButton(
+                child: Text("Add Name"),
+                onPressed: () {
+                  // print(name.text);
+                  Model model = Model(name.text, 45, 85);
+                  context.bloc<TestBloc>().add(TestEvent.all(model));
+                  // BlocProvider.of<TestBloc>(context).add(TestEvent.decrement());
+                },
+              ),
             ],
           ));
         }, listener: (context, state) {
