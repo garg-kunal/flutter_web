@@ -685,9 +685,10 @@ class _$TestStateTearOff {
   const _$TestStateTearOff();
 
 // ignore: unused_element
-  _TestState call({int counter}) {
+  _TestState call({int counter, List<Model> list}) {
     return _TestState(
       counter: counter,
+      list: list,
     );
   }
 }
@@ -699,6 +700,7 @@ const $TestState = _$TestStateTearOff();
 /// @nodoc
 mixin _$TestState {
   int get counter;
+  List<Model> get list;
 
   $TestStateCopyWith<TestState> get copyWith;
 }
@@ -707,7 +709,7 @@ mixin _$TestState {
 abstract class $TestStateCopyWith<$Res> {
   factory $TestStateCopyWith(TestState value, $Res Function(TestState) then) =
       _$TestStateCopyWithImpl<$Res>;
-  $Res call({int counter});
+  $Res call({int counter, List<Model> list});
 }
 
 /// @nodoc
@@ -721,9 +723,11 @@ class _$TestStateCopyWithImpl<$Res> implements $TestStateCopyWith<$Res> {
   @override
   $Res call({
     Object counter = freezed,
+    Object list = freezed,
   }) {
     return _then(_value.copyWith(
       counter: counter == freezed ? _value.counter : counter as int,
+      list: list == freezed ? _value.list : list as List<Model>,
     ));
   }
 }
@@ -734,7 +738,7 @@ abstract class _$TestStateCopyWith<$Res> implements $TestStateCopyWith<$Res> {
           _TestState value, $Res Function(_TestState) then) =
       __$TestStateCopyWithImpl<$Res>;
   @override
-  $Res call({int counter});
+  $Res call({int counter, List<Model> list});
 }
 
 /// @nodoc
@@ -749,23 +753,27 @@ class __$TestStateCopyWithImpl<$Res> extends _$TestStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object counter = freezed,
+    Object list = freezed,
   }) {
     return _then(_TestState(
       counter: counter == freezed ? _value.counter : counter as int,
+      list: list == freezed ? _value.list : list as List<Model>,
     ));
   }
 }
 
 /// @nodoc
 class _$_TestState implements _TestState {
-  const _$_TestState({this.counter});
+  const _$_TestState({this.counter, this.list});
 
   @override
   final int counter;
+  @override
+  final List<Model> list;
 
   @override
   String toString() {
-    return 'TestState(counter: $counter)';
+    return 'TestState(counter: $counter, list: $list)';
   }
 
   @override
@@ -773,12 +781,17 @@ class _$_TestState implements _TestState {
     return identical(this, other) ||
         (other is _TestState &&
             (identical(other.counter, counter) ||
-                const DeepCollectionEquality().equals(other.counter, counter)));
+                const DeepCollectionEquality()
+                    .equals(other.counter, counter)) &&
+            (identical(other.list, list) ||
+                const DeepCollectionEquality().equals(other.list, list)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(counter);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(counter) ^
+      const DeepCollectionEquality().hash(list);
 
   @override
   _$TestStateCopyWith<_TestState> get copyWith =>
@@ -786,10 +799,12 @@ class _$_TestState implements _TestState {
 }
 
 abstract class _TestState implements TestState {
-  const factory _TestState({int counter}) = _$_TestState;
+  const factory _TestState({int counter, List<Model> list}) = _$_TestState;
 
   @override
   int get counter;
+  @override
+  List<Model> get list;
   @override
   _$TestStateCopyWith<_TestState> get copyWith;
 }

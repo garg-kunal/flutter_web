@@ -30,9 +30,12 @@ class TestBloc extends Bloc<TestEvent, TestState> {
         yield state.copyWith(counter: val);
       },
       all: (e) async* {
-        print(e.model);
-        String name = _domain.all(e.model);
-        print(name);
+        // List<Model> ls=state.list;
+        // state.list.add(e.model);
+        //  yield state.copyWith(list:);
+        // List lis = _domain.all(e.model, state.list);
+        // state.list.add(e.model);
+        yield state.copyWith(list: _domain.all(e.model, state.list));
       },
       save: (e) async* {},
     );

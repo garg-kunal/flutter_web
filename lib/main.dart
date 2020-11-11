@@ -23,7 +23,14 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  bool show = false;
   final name = new TextEditingController();
+  _showkr() {
+    setState(() {
+      show = true;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,7 +78,9 @@ class _HomeState extends State<Home> {
               TextFormField(
                 autocorrect: false,
                 controller: name,
-                decoration: InputDecoration(labelText: "Your name"),
+                decoration: InputDecoration(
+                    labelText: "Your name",
+                    contentPadding: const EdgeInsets.all(15.0)),
               ),
               FlatButton(
                 child: Text("Add Name"),
@@ -79,13 +88,32 @@ class _HomeState extends State<Home> {
                   // print(name.text);
                   Model model = Model(name.text, 45, 85);
                   context.bloc<TestBloc>().add(TestEvent.all(model));
+                  name.clear();
                   // BlocProvider.of<TestBloc>(context).add(TestEvent.decrement());
                 },
               ),
+
+              show
+                  ? ListView.builder(
+                      shrinkWrap: true,
+                      scrollDirection: Axis.vertical,
+                      itemCount: state.list.length,
+                      padding: const EdgeInsets.all(15.0),
+                      itemBuilder: (BuildContext context, int index) {
+                        return new ListTile(
+                            title: Text(state.list[index].name),
+                            subtitle: Text(state.list[index].age.toString()));
+                      },
+                    )
+                  : Text("Loading,...")
+              // List()
             ],
           ));
         }, listener: (context, state) {
-          print("State has changed");
+          if (state.list.length != 0) {
+            show = true;
+          }
+
           if (state.counter > 10) {
             // ignore: deprecated_member_use
             Scaffold.of(context).showSnackBar(SnackBar(
@@ -96,3 +124,9 @@ class _HomeState extends State<Home> {
         }));
   }
 }
+
+// Container(
+//                       alignment: Alignment.bottomCenter,
+//                       height: 800,
+//                       width: 500,
+//                       child:
